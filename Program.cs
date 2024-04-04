@@ -21,6 +21,18 @@ namespace HotelReservation
             {
                 hotel.DisplayHotel();
             }
+
+            DaysCalculator daysCalculator = new DaysCalculator();
+
+            int days = daysCalculator.Count();
+            if (days != -1)
+            {
+                Hotel.CheapestRegular(hotels, days);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Dates");
+            }
         }
     }
 }
