@@ -13,9 +13,10 @@ namespace HotelReservation
             Console.WriteLine("Welcome to Hotel Reservation !");
             Hotel[] hotels = new Hotel[3];
 
-            hotels[0] = new Hotel("Lakewood", 110);
-            hotels[1] = new Hotel("Bridgewood", 160);
-            hotels[2] = new Hotel("Ridgewood", 220);
+            hotels[0] = new Hotel("Lakewood", 110, 90);
+            hotels[1] = new Hotel("Bridgewood", 160, 50);
+            hotels[2] = new Hotel("Ridgewood", 220, 150);
+
 
             foreach (Hotel hotel in hotels)
             {
