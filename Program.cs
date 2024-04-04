@@ -18,17 +18,12 @@ namespace HotelReservation
             hotels[2] = new Hotel("Ridgewood", 220, 150);
 
 
-            foreach (Hotel hotel in hotels)
-            {
-                hotel.DisplayHotel();
-            }
-
             DaysCalculator daysCalculator = new DaysCalculator();
 
-            int days = daysCalculator.Count();
-            if (days != -1)
+            var (weekDays, WeekEnds) = daysCalculator.Count();
+            if (weekDays != -1)
             {
-                Hotel.CheapestRegular(hotels, days);
+                Hotel.CheapestRegular(hotels, weekDays, WeekEnds);
             }
             else
             {
