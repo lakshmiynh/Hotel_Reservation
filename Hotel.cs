@@ -26,7 +26,7 @@ namespace HotelReservation
 
         public void DisplayHotel()
         {
-            Console.WriteLine($"Hotel '{HotelName}' with regular customer rate for Week Day is ${WeekDayRegular} and Week End is ${WeekEndRegular}.");
+            Console.WriteLine($"Hotel '{HotelName}' with regular customer rate for Week Day is ${WeekDayRegular}, Week End is ${WeekEndRegular} and Rating {Rating}.");
         }
 
         public static void CheapestRegular(Hotel[] hotels, int days)
@@ -48,14 +48,21 @@ namespace HotelReservation
                 if (TotalPrice > hotel.TotalPrice) TotalPrice = hotel.TotalPrice;
 
             }
-
             IEnumerable<Hotel> hotelSelected = from hotel in hotels
                                                where hotel.TotalPrice <= TotalPrice
                                                select hotel;
+
+            int BestRating = hotelSelected.Max((hotel) => hotel.Rating);
+
+            hotelSelected = from hotel in hotels
+                            where hotel.Rating == BestRating
+                            select hotel;
+
+
             Console.WriteLine($"Cheapest Hotels are,");
             foreach (var hotel in hotelSelected)
             {
-                Console.WriteLine($"{hotel.HotelName}, Total Price = ${hotel.TotalPrice}");
+                Console.WriteLine($"{hotel.HotelName},Rating {hotel.Rating} Total Price = ${hotel.TotalPrice}");
             }
 
         }
