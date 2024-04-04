@@ -29,6 +29,14 @@ namespace HotelReservation
             Console.WriteLine($"Hotel '{HotelName}' with regular customer rate for Week Day is ${WeekDayRegular}, Week End is ${WeekEndRegular} and Rating {Rating}.");
         }
 
+        public static void BestRegular(Hotel[] hotels, int weekDays, int weekEnds)
+        {
+            int BestRating = hotels.Max((hotel) => hotel.Rating);
+            Hotel BestHotel = hotels.Single((hotel) => hotel.Rating == BestRating);
+            BestHotel.TotalPrice = (weekDays * BestHotel.WeekDayRegular) + (weekEnds * BestHotel.WeekEndRegular);
+            Console.WriteLine($"{BestHotel.HotelName}, Total Price = ${BestHotel.TotalPrice}");
+        }
+
         public static void CheapestRegular(Hotel[] hotels, int days)
         {
             int cheapestPrice = hotels.Min((hotel) => hotel.WeekDayRegular);
