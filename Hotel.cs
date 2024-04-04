@@ -14,11 +14,13 @@ namespace HotelReservation
 
         public int TotalPrice { get; set; }
 
-        public Hotel(string name, int weekDayRate, int weekEndRate)
+        public int Rating { get; set; }
+        public Hotel(string name, int weekDayRate, int weekEndRate,int rating)
         {
             HotelName = name;
             WeekDayRegular = weekDayRate;
             WeekEndRegular = weekEndRate;
+            Rating = rating;
             DisplayHotel();
         }
 
